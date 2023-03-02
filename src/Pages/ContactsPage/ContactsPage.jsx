@@ -1,24 +1,25 @@
 // import { nanoid } from 'nanoid';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
-import { ContactForm } from './ContactForm/ContactForm';
-import css from './App.module.css';
+import { ContactList } from '../../components/ContactList/ContactList';
+import { Filter } from '../../components/Filter/Filter';
+import { ContactForm } from '../../components/ContactForm/ContactForm';
+import css from '../ContactsPage/ContactsPage.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  deleteContact,
-  fetchContacts,
-  addContact,
+  getContactsRequest,
+  addContactRequest,
 } from 'redux/contactsOperations';
-import { filterContacts } from 'redux/contactsSlise';
+import { filterContacts } from 'redux/contactsSlice';
 import { useEffect } from 'react';
+import { selectFilter, selectiContactsItems } from 'redux/selectors';
 
-export function App() {
-  const contacts = useSelector(state => state.contactsData.contacts.items);
-  const filter = useSelector(state => state.contactsData.filter);
+function ContactsPage() {
+  const contacts = useSelector(selectiContactsItems);
+  const filter = useSelector(selectFilter);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(getContactsRequest());
   }, [dispatch]);
 
   const sendContact = contact => {
@@ -29,21 +30,13 @@ export function App() {
       alert(`${contact.name} is already in your contacts!`);
       return;
     }
-    dispatch(addContact({ ...contact }));
-  };
-
-  const onBtnDelete = e => {
-    dispatch(deleteContact(e.target.id));
+    dispatch(addContactRequest({ ...contact }));
   };
 
   const handleFilter = e => {
     const { value } = e.target;
     dispatch(filterContacts(value));
   };
-
-  const filterContact = contacts.filter(contact =>
-    contact.name.toLowerCase().trim().includes(filter.toLowerCase())
-  );
 
   return (
     <div>
@@ -52,8 +45,10 @@ export function App() {
         <ContactForm onSubmit={sendContact} />
         <h1 className={css.contactTitle}>Contacts</h1>
         <Filter onChange={handleFilter} value={filter} />
-        <ContactList contacts={filterContact} onBtnDelete={onBtnDelete} />
+        <ContactList />
       </div>
     </div>
   );
 }
+
+export default ContactsPage;

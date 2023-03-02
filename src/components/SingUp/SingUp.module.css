@@ -1,0 +1,53 @@
+.registerPageTitle {
+    font-family: 'Times New Roman',
+        Times,
+        serif;
+    color: rgb(14, 14, 113);
+}
+
+.registerForm {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.registerBtn {
+    margin-top: 20px;
+    min-width: 200px;
+    padding: 15px 45px;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(181, 255, 230);
+    color: black;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+.registerForm .registerBtn:hover,
+.registerForm .registerBtn:focus {
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.6);
+    background-color: rgb(66, 255, 192);
+}
+
+.registerForm {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.registerInput {
+    margin-top: 5px;
+    min-width: 200px;
+    height: 30px;
+    padding: 15px 20px;
+    
+    font-size: 20px;
+    border-radius: 10px;
+}

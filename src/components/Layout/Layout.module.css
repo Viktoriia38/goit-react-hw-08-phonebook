@@ -1,0 +1,75 @@
+.section {
+    display: block;
+    margin: auto;
+    width: 1200px;
+    padding: 10px 30px;
+
+}
+
+.layout {
+    display: flex;
+    min-height: 60px;
+    align-items: center;
+    justify-content: space-between
+}
+
+.layoutLink {
+    text-decoration: none;
+    padding: 15px 45px;
+    margin-right: 30px;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(181, 255, 230);
+    color: black;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+
+.layoutLink:hover,
+.layoutLink:focus {
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.6);
+}
+/* 
+:global .active {
+    border-bottom: solid 4px rgb(43, 5, 255);
+} */    
+
+
+.active {
+    composes: layoutLink;
+    background-color: rgb(66, 255, 192);
+    cursor: pointer;
+}
+
+.layoutLinkLast {
+    text-decoration: none;
+    padding: 15px 45px;
+    margin-right: 0px;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(181, 255, 230);
+    color: black;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+.layoutLinkLast:hover,
+.layoutLinkLast:focus {
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.6);
+}
+
+.layoutMail {
+    margin-right: 10px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.layoutLinksLogOut {
+    display: flex;
+    align-items: center;
+}

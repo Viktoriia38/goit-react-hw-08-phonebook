@@ -1,0 +1,19 @@
+.homePageTitle {
+    text-align: center;
+    font-size: 100px;
+    margin: 0;
+    font-family:'Times New Roman', Times, serif;
+    color: rgb(0, 0, 0);
+}
+
+.homePageImage {
+    width:50vw;
+    height: 27vw;
+    text-align: center;
+    padding: 118px 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;
+    background-size: cover;
+    background-image:url(../../img/3956186.jpg);
+}   

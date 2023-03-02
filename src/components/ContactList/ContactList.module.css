@@ -1,13 +1,16 @@
 .contactList {
     list-style: none;
     margin: auto;
+    width: 100%;
 }
 
 .contactItem {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    width: 70%;
     font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
-    font-size: 40px;
-    font-weight: 500;
+    font-size: 30px;
     margin-bottom: 20px;
 }
 
@@ -17,11 +20,18 @@
 }
 
 .contactBtn {
-    padding: 15px 90px;
+    padding: 10px 35px;
     font-family: 'Times New Roman', Times, serif;
-    font-weight: 600;
     font-size: 20px;
     border-radius: 10px;
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.3);
     background-color: rgb(181, 255, 230);
     margin-left: 35px;
+    border: none;
+}
+
+.contactBtn:hover,
+.contactBtn:focus {
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
 }
