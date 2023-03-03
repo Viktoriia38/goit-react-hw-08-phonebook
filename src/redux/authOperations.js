@@ -12,8 +12,6 @@ export const registerRequest = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const response = await register(formData);
-      console.log(response);
-
       token.set(response.token, 'Bearer');
       return response;
     } catch (error) {
@@ -27,7 +25,6 @@ export const loginRequest = createAsyncThunk(
   async (formData, { rejectWithValue }) => {
     try {
       const response = await login(formData);
-      console.log(response);
       token.set(response.token, 'Bearer');
       return response;
     } catch (error) {
@@ -41,7 +38,6 @@ export const logOutRequest = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await userLogOutRequest();
-      console.log(response);
       token.unSet(response.token, 'Bearer');
       return response;
     } catch (error) {

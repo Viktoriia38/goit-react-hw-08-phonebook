@@ -15,10 +15,6 @@ const LazyRegisterPage = lazy(() =>
   import('../Pages/RegisterPage/RegisterPage')
 );
 const LazyLoginPage = lazy(() => import('../Pages/LoginPage/LoginPage'));
-const LazyLogOutPage = lazy(() => import('../Pages/LogOutPage/LogOutPage'));
-
-// const LazyPublicRoute = lazy(() => import('./PublicRoute/PublicRoute'));
-// const LazyPrivateRoute = lazy(() => import('./PrivateRoute/PrivateRoute'));
 
 function App() {
   const dispatch = useDispatch();
