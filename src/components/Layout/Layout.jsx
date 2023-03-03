@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { logOutRequest } from 'redux/authOperations';
 import { selectUserEmail } from 'redux/selectors';
 import css from './Layout.module.css';
@@ -43,14 +43,14 @@ function Layout() {
             </div>
             {token ? (
               <div className={css.layoutLinksLogOut}>
-                <h2 className={css.layoutMail}>{mail}</h2>
-                <Link
+                <p className={css.layoutMail}>{mail}</p>
+                <NavLink
                   onClick={handleLogOut}
                   className={css.layoutLinkLast}
                   to="/"
                 >
                   Logout
-                </Link>
+                </NavLink>
               </div>
             ) : (
               ''

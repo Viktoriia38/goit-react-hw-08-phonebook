@@ -3,6 +3,8 @@ import React, { lazy, Suspense, useEffect } from 'react';
 import { Loader } from './Loader/Loader';
 import { useDispatch } from 'react-redux';
 import { getCurrentUserRequest } from 'redux/authOperations';
+import { PublicRoute } from './PublicRoute/PublicRoute';
+import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 
 const LazyLayout = lazy(() => import('./Layout/Layout'));
 const LazyHomepage = lazy(() => import('../Pages/HomePage/HomePage'));
@@ -13,6 +15,10 @@ const LazyRegisterPage = lazy(() =>
   import('../Pages/RegisterPage/RegisterPage')
 );
 const LazyLoginPage = lazy(() => import('../Pages/LoginPage/LoginPage'));
+const LazyLogOutPage = lazy(() => import('../Pages/LogOutPage/LogOutPage'));
+
+// const LazyPublicRoute = lazy(() => import('./PublicRoute/PublicRoute'));
+// const LazyPrivateRoute = lazy(() => import('./PrivateRoute/PrivateRoute'));
 
 function App() {
   const dispatch = useDispatch();
@@ -26,9 +32,13 @@ function App() {
       <Routes>
         <Route path="/" element={<LazyLayout />}>
           <Route index element={<LazyHomepage />} />
-          <Route path="/register" element={<LazyRegisterPage />} />
-          <Route path="/login" element={<LazyLoginPage />} />
-          <Route path="/contacts" element={<LazyContactsPage />} />
+          <Route path="/" element={<PublicRoute />}>
+            <Route path="/register" element={<LazyRegisterPage />} />
+            <Route path="/login" element={<LazyLoginPage />} />
+          </Route>
+          <Route path="/" element={<PrivateRoute />}>
+            <Route path="/contacts" element={<LazyContactsPage />} />
+          </Route>
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>

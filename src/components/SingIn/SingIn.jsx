@@ -1,5 +1,6 @@
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
 import { useRef } from 'react';
 import { selectiIsLoading, selectToken } from 'redux/selectors';
@@ -11,6 +12,13 @@ export default function SingIn({ onSubmit }) {
   const passwordInputRef = useRef();
   const isLoading = useSelector(selectiIsLoading);
   const token = useSelector(selectToken);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!token) return;
+
+    navigate('/contacts');
+  }, [token, navigate]);
 
   const handleSubmit = event => {
     event.preventDefault();

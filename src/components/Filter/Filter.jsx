@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import css from './Filter.module.css';
 
 export function Filter({ onChange }) {
-  const value = useSelector(state => state.contactsData.filter);
+  const value = useSelector(state => state.contacts.filter);
 
   return (
     <div className={css.contactsForm}>
