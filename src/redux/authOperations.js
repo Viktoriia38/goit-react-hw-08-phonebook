@@ -51,7 +51,6 @@ export const getCurrentUserRequest = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     try {
       const persistToken = getState().auth.token;
-
       if (!persistToken) return rejectWithValue('No token');
       token.set(persistToken, 'Bearer');
       const response = await getUserDetailsRequest();
